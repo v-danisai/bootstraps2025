@@ -39,10 +39,10 @@
                   $5.00
                 </td>
                 <td>
-                  <button class="btn btn-outline-primary">
+                  <button id="editButton" class="btn btn-outline-primary">
                     Edit
                   </button>
-                  <button class="btn btn-outline-danger">
+                  <button id="deleteButton" class="btn btn-outline-danger">
                     Delete
                   </button>
                 </td>
@@ -168,24 +168,35 @@
             <h5 class="modal-title">Edit Item</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-          <div class="modal-body">
-            <div class="form-group">
-              <label for="form-control">Product</label>
-              <input type="text" class="form-control">
+          <form id="newProductForm">
+            <div class="modal-body">
+              <div class="form-group">
+                <label for="inpProduct">Product Name:</label>
+                <input id="inpProduct" name="product" type="text" class="form-control" required>
+              </div>
+              <div class="form-group">
+                <label for="inpDesc">Description: </label>
+                <input id="inpDesc" name="description" type="text" class="form-control" required>
+              </div>
+              <div class="form-group">
+                <label for="inpPrice">Price: </label>
+                <input id="inpPrice" name="price" type="text" class="form-control" required>
+              </div>
+              <div class="form-group">
+                <label for="inpImage">Image: </label>
+                <input id="inpImage" name="image" type="text" class="form-control" required>
+              </div>
             </div>
-            <div class="form-group">
-              <label for="form-control">Product</label>
-              <input type="text" class="form-control">
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary">Save Changes</button>
             </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
-          </div>
+          </form>
         </div>
       </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/products.js"></script>
 </body>
 </html>
