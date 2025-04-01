@@ -22,31 +22,7 @@
               </tr>
             </thead>
             <tbody id="tableProducts" class="table-group-divider">
-              <tr>
-                <td>
-                  1
-                </td>
-                <td>
-                  <img src="https://www.pngmart.com/files/22/Monster-Energy-PNG-Photos.png" alt="Monster Drink" class="itemImg">
-                </td>
-                <td>
-                  <strong>
-                    Monster
-                  </strong>  <br>
-                  <small>Energy Drink</small>
-                </td>
-                <td>
-                  $5.00
-                </td>
-                <td>
-                  <button class="btn btn-outline-primary editButton" dataName="Monster" dataDesc="Energy Drink" dataPrice="$5.00" dataImage="https://www.pngmart.com/files/22/Monster-Energy-PNG-Photos.png">
-                    Edit
-                  </button>
-                  <button class="btn btn-outline-danger deleteButton">
-                    Delete
-                  </button>
-                </td>
-              </tr>
+              
             </tbody>
           </table>
         </div>
@@ -59,6 +35,7 @@
         </div>
       </div>
     </div>
+    <!-- Modal for inputting a new product -->
     <div id="modal" class="modal fade" tabindex="-1">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -94,7 +71,7 @@
       </div>
     </div>
 
-    <!-- Other Modal -->
+    <!-- Other Modal for editing the images-->
     <div id="editProductModal" class="modal fade" tabindex="-1">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -102,23 +79,23 @@
             <h5 class="modal-title">Edit Item</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-          <form id="newProductForm">
+          <form id="editProducttForm">
             <div class="modal-body">
               <div class="form-group">
-                <label for="inpProduct">Product Name:</label>
-                <input id="inpProduct" name="product" type="text" class="form-control" required>
+                <label for="editProduct">Product Name:</label>
+                <input id="editProduct" name="product" type="text" class="form-control" required>
               </div>
               <div class="form-group">
-                <label for="inpDesc">Description: </label>
-                <input id="inpDesc" name="description" type="text" class="form-control" required>
+                <label for="editDesc">Description: </label>
+                <input id="editDesc" name="description" type="text" class="form-control" required>
               </div>
               <div class="form-group">
-                <label for="inpPrice">Price: </label>
-                <input id="inpPrice" name="price" type="text" class="form-control" required>
+                <label for="editPrice">Price: </label>
+                <input id="editPrice" name="price" type="text" class="form-control" required>
               </div>
               <div class="form-group">
-                <label for="inpImage">Image: </label>
-                <input id="inpImage" name="image" type="text" class="form-control" required>
+                <label for="editImage">Image: </label>
+                <input id="editImage" name="image" type="text" class="form-control" required>
               </div>
             </div>
             <div class="modal-footer">
