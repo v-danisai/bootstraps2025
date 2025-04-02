@@ -30,6 +30,12 @@ $(document).ready(function(){
             e.preventDefault();
             registerItem();
         });
+
+        
+        $("#editProductForm").submit(function(e){
+            e.preventDefault();
+            saveChanges();
+        });
 });
 
 // Function to edit item
@@ -38,11 +44,13 @@ function editItem(btn){
     let desc = $(btn).attr("dataDesc");
     let price = $(btn).attr("dataPrice");
     let url = $(btn).attr("dataImage");
+    let counter = $(btn).attr("data-id");
 
     $("#editProduct").val(name);
     $("#editDesc").val(desc);
     $("#editPrice").val(price);
     $("#editImage").val(url);
+    $("#edit_counter").val(counter);
     
     $("#editProductModal").modal("show");
 }
@@ -77,6 +85,8 @@ function registerItem(){
     let itemDesc = $("#inpDesc").val();
     let itemPrice = $("#inpPrice").val();
     let itemImage = $("#inpImage").val();
+    //alert(itemDesc);
+    //return;
 
     let html = "";
 
@@ -85,9 +95,34 @@ function registerItem(){
     html += "<td> <img src='"+itemImage+"' width='75px' /> </td>";
     html += "<td><strong>"+itemName+"</strong><br><small>"+itemDesc+"</small></td>";
     html += "<td>"+itemPrice+"</td>";
-    html += "<td><button  class='btn btn-outline-primary editButton' dataName="+itemName+" dataDesc="+itemDesc+" dataPrice="+itemPrice+" dataImage="+itemImage+">Edit</button> <button data-id="+itemCounter+" class='btn btn-outline-danger deleteButton'>Delete</button></td>";
+    html += "<td><button  class='btn btn-outline-primary editButton' data-id='"+itemCounter+"' dataName='"+itemName+"' dataDesc='"+itemDesc+"' dataPrice='"+itemPrice+"' dataImage='"+itemImage+"'>Edit</button> <button data-id="+itemCounter+" class='btn btn-outline-danger deleteButton'>Delete</button></td>";
     html +="</tr>";
 
     $("#tableProducts").append(html);
     $("#modal").modal("hide");
+}
+
+function saveChanges(){
+    
+    let itemName = $("#editProduct").val();
+    let itemDesc = $("#editDesc").val();
+    let itemPrice = $("#editPrice").val();
+    let itemImage = $("#editImage").val();
+    let counter = $("#edit_counter").val();
+
+    //CLEAR TABLE ROW
+    $("#tr_"+counter).html("");
+
+    let html = "";
+
+    html += "<td>"+counter+"</td>";
+    html += "<td> <img src='"+itemImage+"' width='75px' /> </td>";
+    html += "<td><strong>"+itemName+"</strong><br><small>"+itemDesc+"</small></td>";
+    html += "<td>"+itemPrice+"</td>";
+    html += "<td><button  class='btn btn-outline-primary editButton' data-id='"+counter+"' dataName='"+itemName+"' dataDesc='"+itemDesc+"' dataPrice='"+itemPrice+"' dataImage='"+itemImage+"'>Edit</button> <button data-id="+itemCounter+" class='btn btn-outline-danger deleteButton'>Delete</button></td>";
+
+    $("#tr_"+counter).html(html);
+
+    //HIDE MODAL
+    $("#editProductModal").modal("hide");
 }
